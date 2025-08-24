@@ -1,0 +1,81 @@
+
+{
+  "name": "users",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["userId", "username", "email", "coinBalance", "totalBadges", "level"],
+        "properties": {
+          "userId": {
+            "bsonType": "string",
+            "description": "Unique user identifier"
+          },
+          "username": {
+            "bsonType": "string",
+            "description": "User display name"
+          },
+          "email": {
+            "bsonType": "string",
+            "description": "User email address"
+          },
+          "avatar": {
+            "bsonType": "string",
+            "description": "User avatar URL"
+          },
+          "coinBalance": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Current coin balance"
+          },
+          "totalBadges": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Total badges earned"
+          },
+          "level": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "User level"
+          },
+          "experiencePoints": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Total experience points"
+          },
+          "lastDailyClaim": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last daily coin claim timestamp"
+          },
+          "joinedDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "User registration date"
+          },
+          "isNewUser": {
+            "bsonType": "bool",
+            "description": "Whether user needs onboarding"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Creator of the record"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Record creation timestamp"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Record update timestamp"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

@@ -1,0 +1,91 @@
+
+{
+  "name": "tasks",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["taskId", "title", "description", "coinReward", "status", "deadline", "category"],
+        "properties": {
+          "taskId": {
+            "bsonType": "string",
+            "description": "Unique task identifier"
+          },
+          "title": {
+            "bsonType": "string",
+            "description": "Task title"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Task description"
+          },
+          "coinReward": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Coin reward for completion"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["available", "in_progress", "completed", "expired"],
+            "description": "Current task status"
+          },
+          "deadline": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Task deadline"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["quiz", "assignment", "forum", "project", "reading", "video"],
+            "description": "Task category"
+          },
+          "difficulty": {
+            "bsonType": "string",
+            "enum": ["easy", "medium", "hard"],
+            "description": "Task difficulty level"
+          },
+          "estimatedTime": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Estimated completion time in minutes"
+          },
+          "requirements": {
+            "bsonType": "array",
+            "description": "Task requirements or prerequisites"
+          },
+          "progress": {
+            "bsonType": "int",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Task completion percentage"
+          },
+          "acceptedBy": {
+            "bsonType": "array",
+            "description": "List of user IDs who accepted this task"
+          },
+          "completedBy": {
+            "bsonType": "array",
+            "description": "List of user IDs who completed this task"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Task creator"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Task creation timestamp"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Task update timestamp"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

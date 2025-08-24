@@ -1,0 +1,72 @@
+
+{
+  "name": "user_tasks",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["userId", "taskId", "status", "acceptedAt"],
+        "properties": {
+          "userId": {
+            "bsonType": "string",
+            "description": "User identifier"
+          },
+          "taskId": {
+            "bsonType": "string",
+            "description": "Task identifier"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["accepted", "in_progress", "completed", "expired"],
+            "description": "User's task status"
+          },
+          "progress": {
+            "bsonType": "int",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "User's progress percentage"
+          },
+          "acceptedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Task acceptance timestamp"
+          },
+          "completedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Task completion timestamp"
+          },
+          "submissionUrl": {
+            "bsonType": "string",
+            "description": "URL to submitted work"
+          },
+          "notes": {
+            "bsonType": "string",
+            "description": "User notes or comments"
+          },
+          "rewardClaimed": {
+            "bsonType": "bool",
+            "description": "Whether reward has been claimed"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Record creator"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Record creation timestamp"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Record update timestamp"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

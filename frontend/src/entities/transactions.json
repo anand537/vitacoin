@@ -1,0 +1,61 @@
+
+{
+  "name": "transactions",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["transactionId", "userId", "type", "amount", "category", "description"],
+        "properties": {
+          "transactionId": {
+            "bsonType": "string",
+            "description": "Unique transaction identifier"
+          },
+          "userId": {
+            "bsonType": "string",
+            "description": "User who performed the transaction"
+          },
+          "type": {
+            "bsonType": "string",
+            "enum": ["earn", "spend", "penalty", "bonus"],
+            "description": "Transaction type"
+          },
+          "amount": {
+            "bsonType": "int",
+            "description": "Coin amount (positive for earn, negative for spend/penalty)"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["quiz", "forum", "daily_claim", "achievement", "penalty", "reward_purchase", "bonus"],
+            "description": "Transaction category"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Transaction description"
+          },
+          "metadata": {
+            "bsonType": "object",
+            "description": "Additional transaction data"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Creator of the record"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Transaction timestamp"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Record update timestamp"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
